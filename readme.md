@@ -9,7 +9,7 @@ The above notebooks use Variational Inference to compute the MAP of the topics m
 
 <b>Important</b>: The directory `data/` contains large files with LHC simulations of pp>hh>bbbb and pp>bbbb.  Because of storage limits, it should be downloaded separately into your local from Zenodo link:  https://zenodo.org/records/19341120
 
-Read carefully how to bring the .dat files from Zenodo.  Once downloaded all files from Zenodo, place the files `bbbb_sd_combined_processed_feb_12.dat` and `dihiggs_sd_processed.dat` into the `data/` folder.   Whereas the two huge .tar.gz files shuold be untared using 'tar -xzf' from CLI. Each one of them will create a folder named 'processed' with many .dat files inside (be careful, both create a folder with the same name...).  You need to create inside the `data/` folders the folders `signal_ssds_big-var_processed` and `background_ssds_big-var_processed` and put the corresponding .dat files from the untar inside them.
+Read carefully how to bring the .dat files from Zenodo.  Once downloaded all files from Zenodo to your local (where you've cloned this repo!), place the files `bbbb_sd_combined_processed_feb_12.dat` and `dihiggs_sd_processed.dat` into the `data/` folder.   Whereas the two huge .tar.gz files shuold be untared using 'tar -xzf file.tar.gz' from CLI. Each one of them will create a folder named 'processed' with many .dat files inside (be careful, when untaring both create a folder with the same name...).  You need to create inside the `data/` folder the folders `signal_ssds_big-var_processed` and `background_ssds_big-var_processed` and put inside them the corresponding .dat files that come out of untarring the .tar.gz files.
 
 ## The notebooks below are not needed in a first pass
 
