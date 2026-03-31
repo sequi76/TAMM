@@ -1,4 +1,4 @@
-# Many wrongs make a right
+# Template-Adapted Mixture Model
 
 ### Main notebooks 
 
@@ -22,6 +22,8 @@ Read carefully how to bring the .dat files from Zenodo.  Once downloaded all fil
 <br>
 
 ## Auxiliary notebooks
+
+(move them to this folder to run them in agreement with their relative path)
 
 Analyze when the true signal fraction is sampled from the prior instead of being fixed:
 - `toy-model.sk-learn-varying-topics-seed-unbiased_parameter_estimation.ipynb`
