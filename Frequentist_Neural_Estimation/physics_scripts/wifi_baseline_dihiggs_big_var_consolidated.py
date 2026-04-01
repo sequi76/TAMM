@@ -219,7 +219,7 @@ for job_idx in range(300):
         lambda_corr = (A_schur * V_tt).item()
         z_profile = np.sign(f_s_fit - TRUE_SIGNAL_FRAC) * np.sqrt(max(profile_stat / lambda_corr, 0))
     except Exception:
-        std_mu = np.nan
+        std_f_s = np.nan
         z_profile = np.nan
 
     print(f"kappa estimate: {f_s_fit:.6f} +/- {std_f_s} | profile z: {z_profile}", flush=True)
