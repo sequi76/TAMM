@@ -37,7 +37,7 @@ for i in range(1, 501):
 results_dir = '../results_dir/'
 td_data_dir = '../td_data_dir/'
 td_signal = torch.tensor(np.loadtxt(td_data_dir + 'dihiggs_sd_processed.dat')).float()
-td_background = torch.tensor(np.loadtxt(td_data_dir + 'bbbb_sd_processed_full.dat')).float()
+td_background = torch.tensor(np.loadtxt(td_data_dir + 'bbbb_sd_combined_processed_feb_12.dat')).float()
 
 # === Apply 110–140 GeV mass window cut to SD observed data ===
 td_signal = td_signal[(td_signal[:, 0] >= 110) & (td_signal[:, 0] <= 140)
