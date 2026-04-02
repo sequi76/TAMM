@@ -13,13 +13,16 @@ Read carefully how to bring the .dat files from Zenodo.  Once downloaded all fil
 
 ### Create papers' plots
 
-- run `plots-paper.ipynb`## The notebooks below are not needed in a first pass
+- run `plots-paper.ipynb`
+
 
 <br>
 <br>
 <br>
 <br>
 <br>
+
+## The notebooks below are not needed in a first pass
 
 ## Auxiliary notebooks
 
