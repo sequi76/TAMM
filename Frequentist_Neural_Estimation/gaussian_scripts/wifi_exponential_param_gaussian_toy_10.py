@@ -313,7 +313,7 @@ for job_idx in range(300):
             mask = (b[:, 0] >= -CUT) & (b[:, 0] <= CUT) & (b[:, 1] >= -CUT) & (b[:, 1] <= CUT)
             eff_bkg.append(mask.float().mean().item())
 
-        obs_signal_raw = torch.tensor(np.random.multivariate_normal(td_signal_mean, td_signal_cov, 10 * Ns_obs)).float()
+        obs_signal_raw = torch.tensor(np.random.multivariate_normal(td_signal_mean, td_signal_cov, 100 * Ns_obs)).float()
         obs_signal_raw = obs_signal_raw[(obs_signal_raw[:, 0] >= -CUT) & (obs_signal_raw[:, 0] <= CUT) & (obs_signal_raw[:, 1] >= -CUT) & (obs_signal_raw[:, 1] <= CUT)]
         obs_signal_p = obs_signal_raw[:Ns_obs].to(device)
 
@@ -325,8 +325,8 @@ for job_idx in range(300):
         obs_data_p = obs_data_p[torch.randperm(obs_data_p.shape[0])]
 
         mybinning = [np.linspace(-2, 2, 10), np.linspace(-2, 2, 10)]
-        binned_signal_true = normalize_prob(flat_histogramdd(obs_signal_p.cpu().numpy(), mybinning))
-        binned_background_true = normalize_prob(flat_histogramdd(obs_background_p.cpu().numpy(), mybinning))
+        binned_signal_true = normalize_prob(flat_histogramdd(obs_signal_raw.cpu().numpy(), mybinning))
+        binned_background_true = normalize_prob(flat_histogramdd(obs_background_raw.cpu().numpy(), mybinning))
 
         all_pre = torch.cat(signal_msds + background_msds, dim=0)
         ref_pre = all_pre[torch.randperm(len(all_pre))]
