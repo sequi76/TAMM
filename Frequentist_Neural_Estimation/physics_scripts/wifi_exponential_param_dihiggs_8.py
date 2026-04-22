@@ -200,8 +200,8 @@ td_signal = td_signal[(td_signal[:, 0] >= 110) & (td_signal[:, 0] <= 140)
                       & (td_signal[:, 1] >= 110) & (td_signal[:, 1] <= 140)]
 td_background = td_background[(td_background[:, 0] >= 110) & (td_background[:, 0] <= 140)
                               & (td_background[:, 1] >= 110) & (td_background[:, 1] <= 140)]
-print(f"SD signal: {td_signal.shape[0]} events (after cut)", flush=True)
-print(f"SD background: {td_background.shape[0]} events (after cut)", flush=True)
+print(f"TD signal: {td_signal.shape[0]} events (after cut)", flush=True)
+print(f"TD background: {td_background.shape[0]} events (after cut)", flush=True)
 
 # === Collect results over 300 pseudoexperiments ===
 z_profiles = []
@@ -216,11 +216,13 @@ for job_idx in range(300):
     perm_bkg = torch.randperm(td_background.shape[0])
     obs_signal_p = td_signal[perm_sig[:Ns_obs]].to(device)
     obs_background_p = td_background[perm_bkg[:Nb_obs]].to(device)
+    obs_signal_big_p = td_signal.to(device)
+    obs_background_big_p = td_background.to(device)
     obs_data_p = torch.cat([obs_signal_p, obs_background_p], dim=0)
     obs_data_p = obs_data_p[torch.randperm(obs_data_p.shape[0])]
     mybinning = [np.linspace(110, 140, 10), np.linspace(110, 140, 10)]
-    binned_signal_true = normalize_prob(flat_histogramdd(obs_signal_p.cpu().numpy(), mybinning))
-    binned_background_true = normalize_prob(flat_histogramdd(obs_background_p.cpu().numpy(), mybinning))
+    binned_signal_true = normalize_prob(flat_histogramdd(obs_signal_big_p.cpu().numpy(), mybinning))
+    binned_background_true = normalize_prob(flat_histogramdd(obs_background_big_p.cpu().numpy(), mybinning))
 
     all_msd = torch.cat(signal_msds + background_msds, dim=0)
 
